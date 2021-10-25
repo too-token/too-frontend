@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Flex, Heading, Text, Link } from '@pancakeswap/uikit'
+import {Flex, Heading, Text, Link, BackgroundImage} from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Container from 'components/Layout/Container'
 import { useWeb3React } from '@web3-react/core'
 import SunburstSvg from './SunburstSvg'
 import CompositeImage from './CompositeImage'
+import {Background} from "../../../../../pancake-toolkit/packages/pancake-uikit/src/components/Image/index.stories";
 
 const BgWrapper = styled.div`
   overflow: hidden;
@@ -51,36 +52,6 @@ const FloatingPancakesWrapper = styled(Container)`
   }
 `
 
-const TopLeftImgWrapper = styled(Flex)`
-  position: absolute;
-  left: 0;
-  top: 0;
-`
-
-const BottomRightImgWrapper = styled(Flex)`
-  position: absolute;
-  right: 0;
-  bottom: 0;
-`
-
-const topLeftImage = {
-  path: '/images/home/flying-pancakes/',
-  attributes: [
-    { src: '1-bottom', alt: 'Pancake flying on the bottom' },
-    { src: '1-left', alt: 'Pancake flying on the left' },
-    { src: '1-top', alt: 'Pancake flying on the top' },
-  ],
-}
-
-const bottomRightImage = {
-  path: '/images/home/flying-pancakes/',
-  attributes: [
-    { src: '2-bottom', alt: 'Pancake flying on the bottom' },
-    { src: '2-top', alt: 'Pancake flying on the top' },
-    { src: '2-right', alt: 'Pancake flying on the right' },
-  ],
-}
-
 const Footer = () => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
@@ -88,18 +59,8 @@ const Footer = () => {
   return (
     <>
       <BgWrapper>
-        <Flex alignItems="center" justifyContent="center" width="100%" height="100%">
-          <StyledSunburst />
-        </Flex>
+        <img src="/images/home/flying-pancakes/moon.png" width="100%" height="100%" alt=""/>
       </BgWrapper>
-      <FloatingPancakesWrapper>
-        <TopLeftImgWrapper>
-          <CompositeImage {...topLeftImage} maxHeight="256px" />
-        </TopLeftImgWrapper>
-        <BottomRightImgWrapper>
-          <CompositeImage {...bottomRightImage} maxHeight="256px" />
-        </BottomRightImgWrapper>
-      </FloatingPancakesWrapper>
       <Wrapper>
         <Heading mb="24px" scale="xl" color="white">
           {t('Start in seconds.')}

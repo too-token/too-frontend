@@ -37,7 +37,7 @@ export const generateMetaData = () => {
   return {
     plugins: {},
     network: 56,
-    strategies: [{ name: 'cake', params: { symbol: 'CAKE', address: tokens.cake.address, decimals: 18 } }],
+    strategies: [{ name: 'too', params: { symbol: 'TOO', address: tokens.too.address, decimals: 18 } }],
   }
 }
 

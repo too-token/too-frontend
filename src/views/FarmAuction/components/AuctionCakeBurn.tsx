@@ -31,7 +31,7 @@ const AuctionCakeBurn: React.FC = () => {
         const amountAsBN = ethersToBigNumber(amount)
         setBurnedCakeAmount(getBalanceNumber(amountAsBN))
       } catch (error) {
-        console.error('Failed to fetch burned auction cake', error)
+        console.error('Failed to fetch burned auction TOO', error)
       }
     }
     if (burnedCakeAmount === 0) {
@@ -60,7 +60,7 @@ const AuctionCakeBurn: React.FC = () => {
           <Skeleton width="128px" />
         )}
       </Flex>
-      <Image width={350} height={320} src="/images/burnt-cake.png" alt={t('Burnt CAKE')} />
+      <Image width={350} height={320} src="/images/burnt-cake.png" alt={t('Burnt TOO')} />
     </Flex>
   )
 }

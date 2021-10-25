@@ -46,7 +46,7 @@ const emissionsPerBlock = 14.5
 const CakeDataRow = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()
-  const burnedBalance = getBalanceNumber(useBurnedBalance(tokens.cake.address))
+  const burnedBalance = getBalanceNumber(useBurnedBalance(tokens.too.address))
   const cakeSupply = totalSupply ? getBalanceNumber(totalSupply) - burnedBalance : 0
   const cakePriceBusd = usePriceCakeBusd()
   const mcap = cakePriceBusd.times(cakeSupply)
@@ -81,7 +81,7 @@ const CakeDataRow = () => {
       <StyledColumn>
         <Text color="textSubtle">{t('Current emissions')}</Text>
 
-        <Heading scale="lg">{t('%cakeEmissions%/block', { cakeEmissions: emissionsPerBlock })}</Heading>
+        <Heading scale="lg">{t('%TOOEmissions%/block', { TOOEmissions: emissionsPerBlock })}</Heading>
       </StyledColumn>
     </Grid>
   )

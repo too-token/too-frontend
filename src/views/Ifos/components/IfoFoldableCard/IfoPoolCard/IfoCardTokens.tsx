@@ -59,7 +59,7 @@ const TokenSection: React.FC<TokenSectionProps> = ({ primaryToken, secondaryToke
 }
 
 const CakeBnbTokenSection: React.FC<TokenSectionProps> = (props) => {
-  return <TokenSection primaryToken={tokens.cake} secondaryToken={tokens.wbnb} {...props} />
+  return <TokenSection primaryToken={tokens.too} secondaryToken={tokens.wbnb} {...props} />
 }
 
 const Label = (props) => <Text bold fontSize="12px" color="secondary" textTransform="uppercase" {...props} />
@@ -109,9 +109,9 @@ const IfoCardTokens: React.FC<IfoCardTokensProps> = ({
     }
     if (account && !hasProfile) {
       if (publicIfoData.status === 'finished') {
-        return <Text textAlign="center">{t('Activate PancakeSwap Profile to take part in next IFO‘s!')}</Text>
+        return <Text textAlign="center">{t('Activate TOOSwap Profile to take part in next IFO‘s!')}</Text>
       }
-      return <Text textAlign="center">{t('You need an active PancakeSwap Profile to take part in an IFO!')}</Text>
+      return <Text textAlign="center">{t('You need an active TOOSwap Profile to take part in an IFO!')}</Text>
     }
     if (publicIfoData.status === 'coming_soon') {
       return (

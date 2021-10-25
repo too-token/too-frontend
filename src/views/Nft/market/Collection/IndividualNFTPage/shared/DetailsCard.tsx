@@ -49,7 +49,7 @@ const DetailsCard: React.FC<DetailsCardProps> = ({ contractAddress, ipfsJson, co
       {count && (
         <Flex justifyContent="space-between" alignItems="center" mb="16px" mr="4px">
           <Text fontSize="12px" color="textSubtle" bold textTransform="uppercase">
-            {t('Supply Count')}
+            {t('Supply')}
           </Text>
           <LongTextContainer bold>{formatNumber(count, 0, 0)}</LongTextContainer>
         </Flex>

@@ -24,7 +24,6 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
     [chainId, currency, wrapped],
   )
   const [[ethPairState, ethPair], [busdPairState, busdPair], [busdEthPairState, busdEthPair]] = usePairs(tokenPairs)
-
   return useMemo(() => {
     if (!currency || !wrapped || !chainId) {
       return undefined
@@ -70,7 +69,7 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
 }
 
 export const useCakeBusdPrice = (): Price | undefined => {
-  const cakeBusdPrice = useBUSDPrice(tokens.cake)
+  const cakeBusdPrice = useBUSDPrice(tokens.too)
   return cakeBusdPrice
 }
 

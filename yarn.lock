@@ -2649,10 +2649,8 @@
     tiny-warning "^1.0.3"
     toformat "^2.0.0"
 
-"@pancakeswap/uikit@^0.55.0":
+"@pancakeswap/uikit@file:../pancake-toolkit/packages/pancake-uikit":
   version "0.55.0"
-  resolved "https://registry.yarnpkg.com/@pancakeswap/uikit/-/uikit-0.55.0.tgz#a783664997512d9199e87fe1cdd49627ec8dd5e6"
-  integrity sha512-JjVuJ8PnH11rDBNZalIfiRJqj/908EDoUjRVDSb0ITZD3KfR/eH9I+7g6bdbPiKyUxnNm3QWgqgqZ58zJBCL4w==
   dependencies:
     "@popperjs/core" "^2.9.2"
     "@types/lodash" "^4.14.168"
@@ -3593,11 +3591,6 @@
   dependencies:
     "@types/connect" "*"
     "@types/node" "*"
-
-"@types/canvas-confetti@^1.4.2":
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/@types/canvas-confetti/-/canvas-confetti-1.4.2.tgz#35c99fc904492fdcc6515c742509e04f3527211c"
-  integrity sha512-t45KUDHlwrD9PJVRHc5z1SlXhO82BQEgMKUXGEV1KnWLFMPA6Y5LfUsLTHHzH9KcKDHZLEiYYH5nIDcjRKWNTg==
 
 "@types/codemirror@0.0.109":
   version "0.0.109"
@@ -20146,7 +20139,7 @@ swarm-js@^0.1.40:
     tar "^4.0.2"
     xhr-request "^1.0.1"
 
-swiper@^6.8.4:
+swiper@^6.6.1:
   version "6.8.4"
   resolved "https://registry.yarnpkg.com/swiper/-/swiper-6.8.4.tgz#938fed4144f4d7952fbf9c44e5832d133a4de794"
   integrity sha512-O+buF9Q+sMA0H7luMS8R59hCaJKlpo8PXhQ6ZYu6Rn2v9OsFd4d1jmrv14QvxtQpKAvL/ZiovEeANI/uDGet7g==
