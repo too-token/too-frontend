@@ -30,7 +30,7 @@ const LotteryCardContent = () => {
   const [currentLotteryPrize, setCurrentLotteryPrize] = useState<BigNumber>(null)
   const cakePriceBusdAsString = usePriceCakeBusd().toString()
 
-  const cakePrizesText = t('%TOOPrizeInUsd% in TOO prizes this round', { cakePrizeInUsd: cakePriceBusdAsString })
+  const cakePrizesText = t('%TOOPrizeInUsd% in TOO prizes this round', { TOOPrizeInUsd: cakePriceBusdAsString })
   const [pretext, prizesThisRound] = cakePrizesText.split(cakePriceBusdAsString)
 
   const cakePriceBusd = useMemo(() => {
