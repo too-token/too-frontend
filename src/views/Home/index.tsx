@@ -18,7 +18,6 @@ import UserBanner from './components/UserBanner'
 
 const StyledHeroSection = styled(PageSection)`
   padding-top: 16px;
-
   ${({ theme }) => theme.mediaQueries.md} {
     padding-top: 48px;
   }
@@ -53,8 +52,8 @@ const Home: React.FC = () => {
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
-            ? 'radial-gradient(103.12% 50% at 50% 50%, #21193A 0%, #191326 100%)'
-            : 'linear-gradient(139.73deg, #E6FDFF 0%, #F3EFFF 100%)'
+            ? 'linear-gradient(90deg, rgba(14, 10, 23, 0.41) 0%, rgba(97, 208, 139, 0.41) 100%)'
+            : 'linear-gradient(139.73deg, #ECF7C4 0%, #FEF4D0 100%)'
         }
         index={2}
         hasCurvedDivider={false}
@@ -70,8 +69,8 @@ const Home: React.FC = () => {
         innerProps={{ style: { margin: '0', width: '100%' } }}
         background={
           theme.isDark
-            ? 'linear-gradient(180deg, #09070C 22%, #201335 100%)'
-            : 'linear-gradient(180deg, #FFFFFF 22%, #D7CAEC 100%)'
+            ? 'linear-gradient(180deg, rgba(14, 10, 23, 0.27) 0%, rgba(97, 208, 139, 0.27) 100%)'
+            : 'linear-gradient(180deg, #FFFFFF 22%, #F5FAE1 100%)'
         }
         index={2}
         hasCurvedDivider={false}
@@ -80,12 +79,12 @@ const Home: React.FC = () => {
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
-        background={theme.colors.background}
+        background={theme.isDark ? '#0E0A17' : '#FFFFFF'}
         index={2}
         hasCurvedDivider={false}
       >
         <OuterWedgeWrapper>
-          <InnerWedgeWrapper top fill={theme.isDark ? '#201335' : '#D8CBED'}>
+          <InnerWedgeWrapper top fill={theme.isDark ? 'rgba(97, 208, 139, 0.288)' : '#F5FAE1'}>
             <WedgeTopLeft />
           </InnerWedgeWrapper>
         </OuterWedgeWrapper>
@@ -93,12 +92,16 @@ const Home: React.FC = () => {
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
-        background={theme.colors.gradients.cardHeader}
+        background={
+            theme.isDark
+                ? 'linear-gradient(109deg, #F7FAE2 0%, #FEFAE9 100%)'
+                : 'linear-gradient(109deg, #F7FAE2 0%, #FEFAE9 100%)'
+        }
         index={2}
         hasCurvedDivider={false}
       >
         <OuterWedgeWrapper>
-          <InnerWedgeWrapper width="150%" top fill={theme.colors.background}>
+          <InnerWedgeWrapper width="150%" top fill={theme.isDark ? '#0E0A17' : '#FFFFFF'}>
             <WedgeTopRight />
           </InnerWedgeWrapper>
         </OuterWedgeWrapper>
