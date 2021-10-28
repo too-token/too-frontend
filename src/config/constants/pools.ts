@@ -21,21 +21,20 @@ const pools: SerializedPoolConfig[] = [
     isLp: false
   },
   {
-    sousId: 1,
-    stakingToken: serializedTokens.mole,
-    earningToken: serializedTokens.mole,
+    sousId: 221,
+    stakingToken: serializedTokens.too,
+    earningToken: serializedTokens.cake,
     contractAddress: {
       97: '',
-      56: '0x978b25c4Df40cc4cF1B59E5819130e998Aa2138A',
+      56: '0xd190d1D80823a5975BeF7e73174d8aCf75B9e774',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
-    tokenPerBlock: '0.12',
+    tokenPerBlock: '0.0015',
     sortOrder: 1,
     isFinished: false,
     isLp: false,
-    isUnlimited: true,
-    rewardsToken: 1200000000000000000000000,
+    isUnlimited: false,
   },
   
 ]
