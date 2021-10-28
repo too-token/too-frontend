@@ -52,7 +52,38 @@ const pools: SerializedPoolConfig[] = [
     isLp: false,
     isUnlimited: false,
   },
-  
+  {
+    sousId: 223,
+    stakingToken: serializedTokens.too,
+    earningToken: serializedTokens.goo,
+    contractAddress: {
+      97: '',
+      56: '0xaA35A2cc2B1dD4975520f19021002c728BEEaec2',
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '444.444444',
+    sortOrder: 1,
+    isFinished: false,
+    isLp: false,
+    isUnlimited: false,
+  },
+  {
+    sousId: 224,
+    stakingToken: serializedTokens.too,
+    earningToken: serializedTokens.too,
+    contractAddress: {
+      97: '',
+      56: '0x789dFd971F3e3d85b1F9d68E4beEE4c924D5DDd4',
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '444.444444',
+    sortOrder: 1,
+    isFinished: false,
+    isLp: false,
+    isUnlimited: false,
+  },
 ]
 
 export default pools

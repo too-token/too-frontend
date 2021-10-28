@@ -23,6 +23,14 @@ export const mainnetTokens = {
   ),
   // bnb here points to the wbnb contract. Wherever the currency BNB is required, conditional checks for the symbol 'BNB' can be used
   bnb: new Token(MAINNET, '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18, 'BNB', 'BNB', 'https://www.binance.com/'),
+  goo: new Token(
+    MAINNET,
+    '0xf34A3640874F36A29c8C8Cd1e5af323B4b0f847b',
+    10,
+    'GOO',
+    'GOO Token',
+    'https://tootoken.vip/',
+),
   too: new Token(
       MAINNET,
       '0x33fea48c8e842a14c62df14c83c79e43dd6386ff',
