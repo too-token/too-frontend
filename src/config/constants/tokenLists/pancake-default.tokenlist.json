@@ -15,8 +15,8 @@
       "symbol": "TOO",
       "address": "0x33Fea48c8e842a14c62dF14C83c79E43Dd6386fF",
       "chainId": 56,
-      "decimals": 18,
-      "logoURI": "http://localhost:3000/images/tokens/0x33Fea48c8e842a14c62dF14C83c79E43Dd6386fF.png"
+      "decimals": 10,
+      "logoURI": "https://tooswap.io/images/tokens/0x33Fea48c8e842a14c62dF14C83c79E43Dd6386fF.png"
     },
     {
       "name": "WBNB Token",

@@ -37,6 +37,7 @@ const Farms = lazy(() => import('./views/Farms'))
 const FarmAuction = lazy(() => import('./views/FarmAuction'))
 const Lottery = lazy(() => import('./views/Lottery'))
 const Ifos = lazy(() => import('./views/Ifos'))
+const ComingSoon = lazy(() => import('./views/ComingSoon'))
 const NotFound = lazy(() => import('./views/NotFound'))
 const Teams = lazy(() => import('./views/Teams'))
 const Team = lazy(() => import('./views/Teams/Team'))
@@ -92,13 +93,14 @@ const App: React.FC = () => {
               <Pools />
             </Route>
             <Route path="/lottery">
-              <Lottery />
+              <ComingSoon />
             </Route>
+
             <Route path="/ifo">
               <Ifos />
             </Route>
             <Route exact path="/teams">
-              <Teams />
+              <ComingSoon />
             </Route>
             <Route path="/teams/:id">
               <Team />
@@ -110,13 +112,14 @@ const App: React.FC = () => {
               <TradingCompetition />
             </Route>
             <Route exact path="/prediction">
-              <Predictions />
+              <ComingSoon />
             </Route>
+
             <Route path="/prediction/leaderboard">
-              <PredictionsLeaderboard />
+              <ComingSoon />
             </Route>
             <Route exact path="/voting">
-              <Voting />
+              <ComingSoon />
             </Route>
             <Route exact path="/voting/proposal/create">
               <CreateProposal />
@@ -127,7 +130,7 @@ const App: React.FC = () => {
 
             {/* NFT */}
             <Route path="/nfts">
-              <NftMarket />
+              <ComingSoon />
             </Route>
 
             <Route path="/pancake-squad">
@@ -165,9 +168,11 @@ const App: React.FC = () => {
             <Route path="/syrup">
               <Redirect to="/pools" />
             </Route>
+            {/*
             <Route path="/collectibles">
               <Redirect to="/nfts" />
             </Route>
+            */}
             <Route path="/profile">
               <Redirect to={`${nftsBaseUrl}/profile/${account?.toLowerCase() || ''}`} />
             </Route>

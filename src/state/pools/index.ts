@@ -58,12 +58,11 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
     const stakingTokenAddress = pool.stakingToken.address ? pool.stakingToken.address.toLowerCase() : null
     let stakingTokenPrice = 0
     if(stakingTokenAddress && prices[stakingTokenAddress]) stakingTokenPrice = prices[stakingTokenAddress]
-    if(stakingTokenAddress && molePoolPrices[stakingTokenAddress]) stakingTokenPrice = molePoolPrices[stakingTokenAddress]
 
     const earningTokenAddress = pool.earningToken.address ? pool.earningToken.address.toLowerCase() : null
     let earningTokenPrice = 0
     if(earningTokenAddress && prices[earningTokenAddress]) earningTokenPrice = prices[earningTokenAddress]
-    if(earningTokenAddress && molePoolPrices[earningTokenAddress]) earningTokenPrice = molePoolPrices[earningTokenAddress]
+
     const apr = !isPoolFinished
       ? getPoolApr(
           stakingTokenPrice,

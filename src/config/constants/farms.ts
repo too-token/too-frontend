@@ -41,6 +41,16 @@ const farms: SerializedFarmConfig[] = [
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
   {
+    pid: 465,
+    lpSymbol: 'TOO-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0x97359e4b43c5b81de9b9083885ad6208dfddc778',
+    },
+    token: serializedTokens.too,
+    quoteToken: serializedTokens.busd,
+  },
+  {
     pid: 464,
     lpSymbol: 'LAZIO-BNB LP',
     lpAddresses: {

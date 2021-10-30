@@ -25,15 +25,15 @@ const Stats = () => {
   const [entrusting, inFunds] = tvlText.split(tvlString)
 
   const UsersCardData: IconCardData = {
-    icon: <CommunityIcon color="secondary" width="36px" />,
+    icon: '',
   }
 
   const TradesCardData: IconCardData = {
-    icon: <SwapIcon color="primary" width="36px" />,
+    icon: '',
   }
 
   const StakedCardData: IconCardData = {
-    icon: <ChartIcon color="failure" width="36px" />,
+    icon: '',
   }
 
   return (
@@ -72,14 +72,14 @@ const Stats = () => {
           <StatCardContent
             headingText={t('%trades% trades', { trades })}
             bodyText={t('made in the last 30 days')}
-            highlightColor={theme.colors.primary}
+            highlightColor={theme.colors.secondary}
           />
         </IconCard>
         <IconCard {...StakedCardData}>
           <StatCardContent
             headingText={t('$%tvl% staked', { tvl: tvlString })}
             bodyText={t('Total Value Locked')}
-            highlightColor={theme.colors.failure}
+            highlightColor={theme.colors.secondary}
           />
         </IconCard>
       </Flex>

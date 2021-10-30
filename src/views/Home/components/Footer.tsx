@@ -6,8 +6,7 @@ import ConnectWalletButton from 'components/ConnectWalletButton'
 import Container from 'components/Layout/Container'
 import { useWeb3React } from '@web3-react/core'
 import SunburstSvg from './SunburstSvg'
-import CompositeImage from './CompositeImage'
-import {Background} from "../../../../../pancake-toolkit/packages/pancake-uikit/src/components/Image/index.stories";
+import useTheme from "../../../hooks/useTheme";
 
 const BgWrapper = styled.div`
   overflow: hidden;
@@ -16,6 +15,10 @@ const BgWrapper = styled.div`
   height: 100%;
   top: 0px;
   left: 0px;
+  background-color: ${({ theme }) => (theme.isDark ? 'linear-gradient(180deg, rgba(14, 10, 23, 1) 0%, rgba(17, 196, 124, 1) 100%)' : 'white')};
+  background-image: url("/images/home/flying-pancakes/tree.png");
+  background-position: bottom;
+  background-size: cover;
 `
 
 const StyledSunburst = styled(SunburstSvg)`
@@ -55,27 +58,15 @@ const FloatingPancakesWrapper = styled(Container)`
 const Footer = () => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
+  const { theme } = useTheme()
 
   return (
     <>
       <BgWrapper>
-        <img src="/images/home/flying-pancakes/moon.png" width="100%" height="100%" alt=""/>
+        <></>
       </BgWrapper>
       <Wrapper>
-        <Heading mb="24px" scale="xl" color="white">
-          {t('Start in seconds.')}
-        </Heading>
-        <Text textAlign="center" color="white">
-          {t('Connect your crypto wallet to start using the app in seconds.')}
-        </Text>
-        <Text mb="24px" bold color="white">
-          {t('No registration needed.')}
-        </Text>
-
-        <Link external href="https://docs.pancakeswap.finance/">
-          {t('Learn how to start')}
-        </Link>
-        {!account && <ConnectWalletButton mt="24px" />}
+        <></>
       </Wrapper>
     </>
   )

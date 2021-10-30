@@ -10,11 +10,12 @@ import LotteryCardContent from './LotteryCardContent'
 import CompositeImage from '../CompositeImage'
 
 const TransparentFrame = styled.div<{ isDark: boolean }>`
-  background: ${({ theme }) => (theme.isDark ? 'rgba(8, 6, 11, 0.6)' : ' rgba(255, 255, 255, 0.6)')};
+  background: ${({ theme }) => (theme.isDark ? 'rgba(255, 255, 255, 0.3)' : ' rgba(255, 255, 255, 0.6)')};
   padding: 16px;
   border: 1px solid ${({ theme }) => theme.colors.cardBorder};
   box-sizing: border-box;
-  backdrop-filter: blur(12px);
+  opacity: 1;
+  backdrop-filter: blur(30px);
   border-radius: 72px;
 
   ${({ theme }) => theme.mediaQueries.md} {
@@ -26,6 +27,7 @@ const BgWrapper = styled.div`
   z-index: -1;
   overflow: hidden;
   position: absolute;
+  background: ${({ theme }) => (theme.isDark ? 'linear-gradient(180deg, rgba(97, 208, 139, 0.44) 0%, rgba(0, 0, 0, 1) 100%, #ffe76a 100%)' : 'linear-gradient(180deg, rgba(178, 244, 178, 1) 0%, rgba(227, 238, 246, 1) 100%)')};
   width: 100%;
   height: 100%;
   top: 0px;
@@ -57,15 +59,15 @@ const TopRightImgWrapper = styled(Flex)`
 
 const PredictionCardData: IconCardData = {
   icon: <PredictionsIcon width="36px" color="inverseContrast" />,
-  background: 'linear-gradient(180deg, #ffb237 0%, #ffcd51 51.17%, #ffe76a 100%);',
-  borderColor: '#ffb237',
+  background: '#BDF665',
+  borderColor: '#BDF665',
   rotation: '-2.36deg',
 }
 
 const LotteryCardData: IconCardData = {
   icon: <TicketFillIcon color="white" width="36px" />,
-  background: ' linear-gradient(180deg, #7645D9 0%, #5121B1 100%);',
-  borderColor: '#3C1786',
+  background: '#41B3CB',
+  borderColor: '#41B3CB',
   rotation: '1.43deg',
 }
 
@@ -100,8 +102,8 @@ const WinSection = () => {
       <TransparentFrame isDark={theme.isDark}>
         <Flex flexDirection="column" alignItems="center" justifyContent="center">
           <ColoredWordHeading textAlign="center" text={t('Win millions in prizes')} />
-          <Text color="textSubtle">{t('Provably fair, on-chain games.')}</Text>
-          <Text mb="40px" color="textSubtle">
+          <Text color="white">{t('Provably fair, on-chain games.')}</Text>
+          <Text mb="40px" color="white">
             {t('Win big with TOOSwap.')}
           </Text>
           <Flex m="0 auto" flexDirection={['column', null, null, 'row']} maxWidth="600px">
