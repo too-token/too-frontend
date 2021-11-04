@@ -109,6 +109,7 @@ const Pools: React.FC = () => {
     return [cakeAutoVault, ...poolsWithoutAutoVault]
   }, [poolsWithoutAutoVault])
 
+
   // TODO aren't arrays in dep array checked just by reference, i.e. it will rerender every time reference changes?
   const [finishedPools, openPools] = useMemo(() => partition(pools, (pool) => pool.isFinished), [pools])
   const stakedOnlyFinishedPools = useMemo(
@@ -223,6 +224,9 @@ const Pools: React.FC = () => {
     chosenPools = stakedOnly ? stakedOnlyFinishedPools : finishedPools
   } else {
     chosenPools = stakedOnly ? stakedOnlyOpenPools : openPools
+    chosenPools = chosenPools.filter((pool) =>
+        pool.sousId !== 0,
+    )
   }
 
   if (searchQuery) {
@@ -234,7 +238,6 @@ const Pools: React.FC = () => {
   // chosenPools = chosenPools.filter((pool)=> !pool.isAutoVault && pool.sousId !== 0)
   chosenPools = sortPools(chosenPools).slice(0, numberOfPoolsVisible)
   chosenPoolsLength.current = chosenPools.length
-
   const cardLayout = (
     <CardLayout>
       {chosenPools.map((pool) =>

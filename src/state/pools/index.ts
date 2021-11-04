@@ -48,7 +48,6 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
   const totalStakings = await fetchPoolsTotalStaking()
 
   const prices = getTokenPricesFromFarm(getState().farms.data)
-
   const liveData = poolsConfig.map((pool) => {
     const blockLimit = blockLimits.find((entry) => entry.sousId === pool.sousId)
     const totalStaking = totalStakings.find((entry) => entry.sousId === pool.sousId)

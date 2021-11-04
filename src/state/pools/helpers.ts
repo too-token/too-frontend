@@ -35,7 +35,7 @@ export const transformPool = (pool: SerializedPool): DeserializedPool => {
 }
 
 export const getTokenPricesFromFarm = (farms: SerializedFarm[]) => {
-  return farms.reduce((prices, farm) => {
+  const price = farms.reduce((prices, farm) => {
     const quoteTokenAddress = farm.quoteToken.address.toLocaleLowerCase()
     const tokenAddress = farm.token.address.toLocaleLowerCase()
     /* eslint-disable no-param-reassign */
@@ -48,4 +48,8 @@ export const getTokenPricesFromFarm = (farms: SerializedFarm[]) => {
     /* eslint-enable no-param-reassign */
     return prices
   }, {})
+  return {
+    ...price,
+    '0xf34a3640874f36a29c8c8cd1e5af323b4b0f847b' : price['0x33fea48c8e842a14c62df14c83c79e43dd6386ff']
+  }
 }
