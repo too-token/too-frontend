@@ -40,6 +40,16 @@ const farms: SerializedFarmConfig[] = [
   /**
    * V3 by order of release (some may be out of PID order due to multiplier boost)
    */
+   {
+    pid: 466,
+    lpSymbol: 'MOLE-BUSD LP',
+    lpAddresses: {
+      97: '',
+      56: '0xFA71B4dA0d296a5F01E987A1094b764b8Ea4FfeD',
+    },
+    token: serializedTokens.mole,
+    quoteToken: serializedTokens.busd,
+  },
   {
     pid: 465,
     lpSymbol: 'TOO-BUSD LP',
