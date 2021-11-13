@@ -50,6 +50,6 @@ export const getTokenPricesFromFarm = (farms: SerializedFarm[]) => {
   }, {})
   return {
     ...price,
-    '0xf34a3640874f36a29c8c8cd1e5af323b4b0f847b' : price['0x33fea48c8e842a14c62df14c83c79e43dd6386ff']
+    '0xf34A3640874F36A29c8C8Cd1e5af323B4b0f847b' : price['0x33fea48c8e842a14c62df14c83c79e43dd6386ff'],
   }
 }
