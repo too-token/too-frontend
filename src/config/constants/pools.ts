@@ -126,11 +126,27 @@ const pools: SerializedPoolConfig[] = [
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
-    tokenPerBlock: '0.025',
+    tokenPerBlock: '88.888888',
     sortOrder: 1,
     isFinished: false,
     isLp: false,
     isUnlimited: false,
+  },
+  {
+    sousId: 228,
+    stakingToken: serializedTokens.too,
+    earningToken: serializedTokens.goo,
+    contractAddress: {
+      97: '',
+      56: '0xD42C4F128aF5ed29fFFecF4a02cAe72f1dF90BeE',
+    },
+    poolCategory: PoolCategory.CORE,
+    harvest: true,
+    tokenPerBlock: '0.025',
+    sortOrder: 1,
+    isFinished: false,
+    isLp: false,
+    isUnlimited: true,
   },
 ]
 
