@@ -57,10 +57,12 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
     const stakingTokenAddress = pool.stakingToken.address ? pool.stakingToken.address.toLowerCase() : null
     let stakingTokenPrice = 0
     if(stakingTokenAddress && prices[stakingTokenAddress]) stakingTokenPrice = prices[stakingTokenAddress]
-
     const earningTokenAddress = pool.earningToken.address ? pool.earningToken.address.toLowerCase() : null
+
     let earningTokenPrice = 0
     if(earningTokenAddress && prices[earningTokenAddress]) earningTokenPrice = prices[earningTokenAddress]
+    if(earningTokenAddress === '0xf34a3640874f36a29c8c8cd1e5af323b4b0f847b')
+      earningTokenPrice = prices['0x33fea48c8e842a14c62df14c83c79e43dd6386ff'];
 
     const apr = !isPoolFinished
       ? getPoolApr(
@@ -70,6 +72,7 @@ export const fetchPoolsPublicDataAsync = (currentBlock: number) => async (dispat
           parseFloat(pool.tokenPerBlock),
         )
       : 0
+
 
     return {
       ...blockLimit,
