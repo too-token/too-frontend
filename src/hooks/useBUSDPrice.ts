@@ -57,6 +57,64 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
     }
     if (ethPairState === PairState.EXISTS && ethPair && busdEthPairState === PairState.EXISTS && busdEthPair) {
       if (busdEthPair.reserveOf(BUSD_MAINNET).greaterThan('0') && ethPair.reserveOf(WBNB).greaterThan('0')) {
+        busdPair.token0Price.toFixed(8)
+        const ethBusdPrice = busdEthPair.priceOf(BUSD_MAINNET)
+        const currencyEthPrice = ethPair.priceOf(WBNB)
+        const busdPrice = ethBusdPrice.multiply(currencyEthPrice).invert()
+        return new Price(currency, BUSD_MAINNET, busdPrice.denominator, busdPrice.numerator)
+      }
+    }
+
+    return undefined
+  }, [chainId, currency, ethPair, ethPairState, busdEthPair, busdEthPairState, busdPair, busdPairState, wrapped])
+}
+
+export function usePrice(currency?: Currency): Price | undefined {
+  const { chainId } = useActiveWeb3React()
+  const wrapped = wrappedCurrency(currency, chainId)
+  const tokenPairs: [Currency | undefined, Currency | undefined][] = useMemo(
+      () => [
+        [chainId && wrapped && currencyEquals(WBNB, wrapped) ? undefined : currency, chainId ? WBNB : undefined],
+        [wrapped?.equals(BUSD_MAINNET) ? undefined : wrapped, chainId === ChainId.MAINNET ? BUSD_MAINNET : undefined],
+        [chainId ? WBNB : undefined, chainId === ChainId.MAINNET ? BUSD_MAINNET : undefined],
+      ],
+      [chainId, currency, wrapped],
+  )
+  const [[ethPairState, ethPair], [busdPairState, busdPair], [busdEthPairState, busdEthPair]] = usePairs(tokenPairs)
+  return useMemo(() => {
+    if (!currency || !wrapped || !chainId) {
+      return undefined
+    }
+    // handle weth/eth
+    if (wrapped.equals(WBNB)) {
+      if (busdPair) {
+        const price = busdPair.priceOf(WBNB)
+        return new Price(currency, BUSD_MAINNET, price.denominator, price.numerator)
+      }
+      return undefined
+    }
+    // handle busd
+    if (wrapped.equals(BUSD_MAINNET)) {
+      return new Price(BUSD_MAINNET, BUSD_MAINNET, '1', '1')
+    }
+
+    const ethPairETHAmount = ethPair?.reserveOf(WBNB)
+    const ethPairETHBUSDValue: JSBI =
+        ethPairETHAmount && busdEthPair ? busdEthPair.priceOf(WBNB).quote(ethPairETHAmount).raw : JSBI.BigInt(0)
+
+    // all other tokens
+    // first try the busd pair
+    if (
+        busdPairState === PairState.EXISTS &&
+        busdPair &&
+        busdPair.reserveOf(BUSD_MAINNET).greaterThan(ethPairETHBUSDValue)
+    ) {
+      const price = busdPair.priceOf(wrapped)
+      return new Price(currency, BUSD_MAINNET, price.denominator, price.numerator)
+    }
+    if (ethPairState === PairState.EXISTS && ethPair && busdEthPairState === PairState.EXISTS && busdEthPair) {
+      if (busdEthPair.reserveOf(BUSD_MAINNET).greaterThan('0') && ethPair.reserveOf(WBNB).greaterThan('0')) {
+        return busdPair.token0Price
         const ethBusdPrice = busdEthPair.priceOf(BUSD_MAINNET)
         const currencyEthPrice = ethPair.priceOf(WBNB)
         const busdPrice = ethBusdPrice.multiply(currencyEthPrice).invert()
@@ -69,8 +127,8 @@ export default function useBUSDPrice(currency?: Currency): Price | undefined {
 }
 
 export const useCakeBusdPrice = (): Price | undefined => {
-  const cakeBusdPrice = useBUSDPrice(tokens.too)
-  return cakeBusdPrice
+  const bnbBusdPrice = usePrice(tokens.too)
+  return bnbBusdPrice
 }
 
 export const useBNBBusdPrice = (): Price | undefined => {

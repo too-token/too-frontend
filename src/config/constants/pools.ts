@@ -16,7 +16,7 @@ const pools: SerializedPoolConfig[] = [
     harvest: true,
     tokenPerBlock: '10',
     sortOrder: 1,
-    isFinished: true,
+    isFinished: false,
     isUnlimited: true,
     isLp: false
   },
@@ -58,7 +58,7 @@ const pools: SerializedPoolConfig[] = [
     earningToken: serializedTokens.goo,
     contractAddress: {
       97: '',
-      56: '0xBe740ef38091fa36D5441ba3E7982c277e69d688',
+      56: '0xaa35a2cc2b1dd4975520f19021002c728beeaec2',
     },
     poolCategory: PoolCategory.CORE,
     harvest: true,
